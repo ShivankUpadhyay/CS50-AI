@@ -1,4 +1,3 @@
-import itertools
 import random
 
 
@@ -246,8 +245,6 @@ class MinesweeperAI():
                         app_sentence.append(sentence1)
 
         self.knowledge = [sentence for sentence in self.knowledge if sentence not in rem_sentence]
-        # for i in range(len(app_sentence)):
-        #     self.knowledge.append(app_sentence[i])
 
         self.knowledge += app_sentence
 
