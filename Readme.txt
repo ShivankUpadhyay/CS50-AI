@@ -9,4 +9,4 @@ If no certain deductions can be made regarding a safe move, the AI performs a ra
 
 The goal of the game is to flag (i.e., identify) each of the mines.
 
-The game can be seen in action here: https://youtu.be/bW2M1rVGiJI
+The game can be seen in action here: https://youtu.be/LUtMv3i7xt8
