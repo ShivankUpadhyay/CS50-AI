@@ -128,49 +128,36 @@ def iterate_pagerank(corpus, damping_factor):
     PageRank values should sum to 1.
     """
     page_rank = dict()
-    page_source = dict()
+    prev = None
 
-    total_page_count = len(corpus)
+    for key in corpus:
+        page_rank[key] = 1/len(corpus)
 
-    for page in corpus:
-        page_rank[page] = 1/total_page_count
-        page_source[page] = set()
-        page_link = corpus[page]
-        if len(page_link) == 0:
-            for keys in corpus.keys():
-                page_link.add(keys)
-            corpus[page] = page_link
-
-
-    for page in corpus:
-        linked_pages = corpus[page]
-
-        for p in linked_pages:
-            if p in page_source.keys():
-                temp = page_source.get(p)
-                temp.add(page)
-                page_source[p] = temp
-
+        if len(corpus[key]) == 0:
+            corpus[key].update(corpus.keys())
 
     while True:
 
         max_change = 0
-        for page in page_rank:
+        prev = page_rank.copy()
 
-            linked_pages = page_source[page]
-            val = 0
+        for key in page_rank:
 
-            for p in linked_pages:
-                links = len(corpus[p])
-                val += page_rank[p]/links
+            new_rank = 0
 
-            new_rank = ((1-damping_factor)/total_page_count) + (damping_factor * val)
+            for page in corpus:
+                if key in corpus[page]:
+                    new_rank += prev[page]/len(corpus[page])
 
-            max_change = max(max_change, abs(page_rank[page] - new_rank))
-            page_rank[page] = new_rank
+            new_rank *= damping_factor
+            new_rank += ((1-damping_factor)/len(page_rank))
 
-        if max_change <= 0.001:
-            return page_rank
+            max_change = max(max_change, abs(page_rank[key] - new_rank))
+            page_rank[key] = new_rank
+
+        if max_change < 0.001:
+            break
+    return prev
 
 
 

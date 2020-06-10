@@ -8,4 +8,4 @@ Method 2: Iterative Algorithm
 
 Both the methods are implemented by the AI.
 
-The code can be seen in action here: https://youtu.be/5armlaZTeYc
+The code can be seen in action here: https://youtu.be/RGMiO1pXmdA
