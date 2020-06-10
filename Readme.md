@@ -4,8 +4,10 @@ In PageRank’s algorithm, a website is more important if it is linked to by oth
 It turns out that there are multiple strategies for calculating these rankings. 
 
 Method 1: Random Surfer Model
+
 Method 2: Iterative Algorithm
 
 Both the methods are implemented by the AI.
 
-The code can be seen in action here: https://youtu.be/RGMiO1pXmdA
+The code can be seen in action here: https://youtu.be/
+RGMiO1pXmdA
