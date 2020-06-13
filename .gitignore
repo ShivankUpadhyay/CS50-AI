@@ -1,0 +1,8 @@
+# IntelliJ project files
+.idea
+__pycache__
+gtsrb
+gtsrb-small
+*.iml
+out
+gen
